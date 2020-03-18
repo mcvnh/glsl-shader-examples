@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="sidebar-container">
+      <sidebar :items="menuItems" />
+    </div>
+
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Sidebar from '@/components/Sidebar';
+import ShaderList from '@/shader-list';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Sidebar,
+  },
+  data: () => ({
+    menuItems: ShaderList,
+  }),
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-container {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  background-color: #ededed;
+  width: 250px;
 }
 </style>

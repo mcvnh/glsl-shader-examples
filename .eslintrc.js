@@ -1,7 +1,10 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+  },
+  globals: {
+    "THREE": 'true'
   },
   'extends': [
     'plugin:vue/essential',
@@ -10,8 +13,4 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
 }
