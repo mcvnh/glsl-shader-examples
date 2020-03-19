@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ShaderList from '@/shader-list';
+import ShaderList from '@/shaders/shader-list';
 
 export default {
   props: {
@@ -15,7 +15,7 @@ export default {
 
   computed: {
     current() {
-      return ShaderList.find(it => it.id === this.id);
+      return ShaderList.find(it => it.id === +this.id);
     }
   }
 }

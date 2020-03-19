@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="sidebar-container">
-      <sidebar :items="menuItems" />
+      <sidebar />
     </div>
 
     <router-view />
@@ -10,16 +10,12 @@
 
 <script>
 import Sidebar from '@/components/Sidebar';
-import ShaderList from '@/shader-list';
 
 export default {
   name: 'App',
   components: {
     Sidebar,
   },
-  data: () => ({
-    menuItems: ShaderList,
-  }),
 }
 </script>
 

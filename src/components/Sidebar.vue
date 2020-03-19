@@ -1,35 +1,24 @@
 <template>
   <div id="sidebar">
-    <div
-      v-for="item in items"
-      :key="item.id"
-      :class="{ selected: value && value.id === item.id, 'sidebar-item': true }"
-      @click="onItemClick(item)"
+    <router-link
+      v-for="shader in shaderLists"
+      :key="shader.id"
+      :to="{ name: 'shader-view', params: { id: shader.id }}"
+      tag="div"
+      class="sidebar-item"
     >
-      {{ item.label }}
-    </div>
+      {{ shader.label }}
+    </router-link>
   </div>
 </template>
 
 <script>
+import ShaderList from '@/shaders/shader-list';
+
 export default {
-  props: {
-    value: {
-      type: Object,
-      default: undefined,
-    },
-
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-
-  methods: {
-    onItemClick(item) {
-      this.$router.push({ name: 'shader-view', params: { id: item.id } })
-    }
-  }
+  data: () => ({
+    shaderLists: ShaderList,
+  })
 }
 </script>
 
@@ -41,7 +30,7 @@ export default {
   cursor: pointer;
 }
 
-.sidebar-item.selected {
+.sidebar-item.router-link-exact-active {
   background-color: rgba(0, 0, 0, .2);
 }
 </style>
