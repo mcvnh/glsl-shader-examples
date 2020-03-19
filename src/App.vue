@@ -3,7 +3,6 @@
     <div class="sidebar-container">
       <sidebar />
     </div>
-
     <router-view />
   </div>
 </template>
@@ -13,9 +12,7 @@ import Sidebar from '@/components/Sidebar';
 
 export default {
   name: 'App',
-  components: {
-    Sidebar,
-  },
+  components: { Sidebar }
 }
 </script>
 
