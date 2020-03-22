@@ -1,8 +1,10 @@
 export default {
+  stats: false,
   data: () => ({
     camera: undefined,
     scene: undefined,
     renderer: undefined,
+    stats: undefined,
   }),
 
   render: (h) => h('div'),
@@ -12,6 +14,15 @@ export default {
     this.initScene();
     this.appendCanvas();
     this.onParentAnimate();
+
+    if (this.$options.stats) {
+      const loader = import('stats-rs');
+
+      loader.then(({ Stats }) => {
+        this.stats = Stats.init();
+        this.stats.attach(document.body);
+      });
+    }
   },
 
   destroyed() {
@@ -44,6 +55,10 @@ export default {
 
     onParentAnimate() {
       requestAnimationFrame(this.onParentAnimate);
+
+      if (this.$options.stats && this.stats) {
+        this.stats.update();
+      }
 
       this.renderer.render(this.scene, this.camera);
       this.animate();
