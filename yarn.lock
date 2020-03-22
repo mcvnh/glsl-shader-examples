@@ -7123,10 +7123,10 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-stats-rs@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/stats-rs/-/stats-rs-0.1.0.tgz#09c4c16545816a18a9453be1924c9a1729a0a1f4"
-  integrity sha512-U+bXocTqYyPZd5xfUvUZ+XreHZtS5R+LGnL2wbA9FqezjpfbD7F4FIjKuYcvMOcw3kMcTCBvkZzOHU8JpWJ+zQ==
+stats-rs@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/stats-rs/-/stats-rs-0.1.3.tgz#fa1aa1da4fd3fced2388a85a121d9712d890b880"
+  integrity sha512-3ndAi7NcxY9kOvSSRt8cOyjXn7sqvg+RHYHzjagRAZ0L4sRJB+/4xx6zwoMQ1CWI7htUUSEvj/EtVzfBO73SNA==
 
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"

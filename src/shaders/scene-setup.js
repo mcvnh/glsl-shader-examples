@@ -30,7 +30,7 @@ export default {
     this.removeCanvas();
 
     if (this.$options.stats && this.stats) {
-      // TODO: detach the stats
+      this.stats.detach(document.body);
     }
   },
 
