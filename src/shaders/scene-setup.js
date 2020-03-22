@@ -28,6 +28,10 @@ export default {
   destroyed() {
     window.removeEventListener('resize', this.onParentWindowResize);
     this.removeCanvas();
+
+    if (this.$options.stats && this.stats) {
+      // TODO: detach the stats
+    }
   },
 
   methods: {
