@@ -5,12 +5,19 @@ export default {
     scene: undefined,
     renderer: undefined,
     stats: undefined,
+
+    canvasWidth: 0,
+    canvasHeight: 0,
   }),
 
   render: (h) => h('div'),
 
   mounted() {
+    this.canvasWidth = this.$el.parentNode.clientWidth;
+    this.canvasHeight = this.$el.parentNode.clientHeight;
+
     window.addEventListener('resize', this.onParentWindowResize, false);
+
     this.initScene();
     this.appendCanvas();
     this.onParentAnimate();
@@ -44,9 +51,7 @@ export default {
 
     appendCanvas() {
       if (this.renderer) {
-        const pWidth = this.$el.parentNode.clientWidth;
-        const pHeight = this.$el.parentNode.clientHeight;
-        this.renderer.setSize(pWidth, pHeight);
+        this.renderer.setSize(this.canvasWidth, this.canvasHeight);
         this.$el.appendChild(this.renderer.domElement);
       }
     },
@@ -69,13 +74,10 @@ export default {
     },
 
     onParentWindowResize() {
-      const pWidth = this.$el.parentNode.clientWidth;
-      const pHeight = this.$el.parentNode.clientHeight;
-
-      const aspectRatio =  pWidth / pHeight;
+      const aspectRatio =  this.canvasWidth / this.canvasHeight;
       const width = aspectRatio >= 1 ? 1 : aspectRatio;
       const height = aspectRatio >= 1
-        ? (pHeight / pWidth) * width
+        ? (this.canvasHeight / this.canvasWidth) * width
         : 1;
 
       if (this.camera) {
@@ -87,7 +89,7 @@ export default {
       }
 
       if (this.renderer) {
-        this.renderer.setSize(pWidth, pHeight);
+        this.renderer.setSize(this.canvasWidth, this.canvasHeight);
       }
 
       this.onWindowResize();

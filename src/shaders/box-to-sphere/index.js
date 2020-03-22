@@ -12,7 +12,7 @@ export default {
     uniforms: {
       u_time: { value: 0.0 },
       u_radius: { value: 20.0 },
-      u_speed: { value: 10.0 },
+      u_speed: { value: 2.0 },
     },
     controls: undefined,
     clock: undefined,
@@ -40,7 +40,7 @@ export default {
       this.scene = new THREE.Scene();
       this.camera = new THREE.PerspectiveCamera(
         45,
-        window.innerWidth / window.innerHeight,
+        this.canvasWidth / this.canvasHeight,
         1,
         1000,
       );
