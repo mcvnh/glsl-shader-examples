@@ -74,11 +74,14 @@ export default {
     },
 
     onParentWindowResize() {
+      this.canvasWidth = this.$el.parentNode.clientWidth;
+      this.canvasHeight = this.$el.parentNode.clientHeight;
+
       const aspectRatio =  this.canvasWidth / this.canvasHeight;
       const width = aspectRatio >= 1 ? 1 : aspectRatio;
       const height = aspectRatio >= 1
-        ? (this.canvasHeight / this.canvasWidth) * width
-        : 1;
+        ? 1
+        : (this.canvasHeight / this.canvasWidth) * width;
 
       if (this.camera) {
         this.camera.left = -width;
